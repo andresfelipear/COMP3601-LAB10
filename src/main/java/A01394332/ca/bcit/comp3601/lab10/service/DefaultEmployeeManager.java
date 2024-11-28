@@ -7,9 +7,8 @@ import A01394332.ca.bcit.comp3601.lab10.database.dao.EmployeeDao;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.sql.Connection;
+import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Properties;
@@ -24,32 +23,43 @@ public class DefaultEmployeeManager implements EmployeeManager
 {
     private Properties dbProps;
 
-    private final Database      db;
-    private final EmployeeDao   employeeDao;
+    private Database db;
+    private final EmployeeDao employeeDao;
 
-    public DefaultEmployeeManager(final String dbUrl, final String dbUser, final String dbPassword) throws IOException, SQLException
+    public DefaultEmployeeManager(final String dbUrl,
+                                  final String dbUser,
+                                  final String dbPassword) throws IOException
     {
         readAndLoadPropertiesFile();
-        db = new Database(dbProps, dbUrl, dbUser, dbPassword);
+        db = new Database(dbProps,
+                          dbUrl,
+                          dbUser,
+                          dbPassword);
         employeeDao = new EmployeeDao(db);
     }
 
     private void readAndLoadPropertiesFile() throws IOException
     {
-        File dbPropertiesFile = new File(DbConstants.DB_PROPERTIES_FILENAME);
-        if(!dbPropertiesFile.exists())
-        {
-            System.out.println("Properties file does not exist");
-            throw new RuntimeException("Properties file does not exist");
-        }
-
         dbProps = new Properties();
-        dbProps.load(new FileInputStream(dbPropertiesFile));
+        try(InputStream inputStream = getClass().getClassLoader().getResourceAsStream(DbConstants.DB_PROPERTIES_FILENAME))
+        {
+            if(inputStream == null)
+            {
+                System.out.println("Properties file does not exist. " + DbConstants.DB_PROPERTIES_FILENAME);
+                throw new RuntimeException("Properties file does not exist");
+            }
+            dbProps.load(inputStream);
+        }
     }
 
     @Override
     public List<Employee> getEmployees() throws SQLException
     {
         return employeeDao.getAll();
+    }
+
+    public void listTables() throws SQLException
+    {
+        employeeDao.listTables();
     }
 }

@@ -51,7 +51,8 @@ public class EmployeeDao implements Dao<Employee>
         {
             connection = db.getConnection();
             statement = connection.createStatement();
-            String query = String.format("SELECT * FROM %s", TABLE_NAME);
+            String query = String.format("SELECT * FROM %s",
+                                         "Employees");
             resultSet = statement.executeQuery(query);
             employees = getEmployeesFromResultSet(resultSet);
         }
@@ -63,56 +64,94 @@ public class EmployeeDao implements Dao<Employee>
         return employees;
     }
 
-    private ArrayList<Employee> getEmployeesFromResultSet(final ResultSet resultSet) throws SQLException
+    public void listTables() throws SQLException
     {
-        final ArrayList<Employee> employees = new ArrayList<>();
+        Connection connection;
+        Statement  statement;
+        ResultSet  resultSet;
 
-        while(resultSet.next())
+        try
         {
-            final Employee employee;
-            final String id          = resultSet.getString("ID");
-            final String firstName   = resultSet.getString("firstName");
-            final String lastName    = resultSet.getString("lastName");
-            final String dobString   = resultSet.getString("dob");
-
-            if(dobString != null)
+            connection = db.getConnection();
+            statement = connection.createStatement();
+            System.out.println("So far so good");
+            String query = "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'";
+            resultSet = statement.executeQuery(query);
+            while(resultSet.next())
             {
-                final LocalDate dob      = LocalDate.parse(resultSet.getString("dob"));
-                employee = new Employee(id, firstName, lastName, dob);
+                String tableName = resultSet.getString("TABLE_NAME");
+                System.out.println("Table: " + tableName);
             }
-            else
-            {
-                employee = new Employee(id, firstName, lastName);
-            }
-
-            employees.add(employee);
+        }
+        catch(Exception e)
+        {
+            System.out.println("Error listing tables");
+            System.out.println(e.getMessage());
+            throw new SQLException(e);
+        }
+        finally
+        {
+            db.shutdown();
         }
 
-        return employees;
+        System.out.println("tables listed correctly!");
     }
 
-    @Override
-    public void insert(final Employee employee) throws SQLException
-    {
+        private ArrayList<Employee> getEmployeesFromResultSet ( final ResultSet resultSet) throws SQLException
+        {
+            final ArrayList<Employee> employees = new ArrayList<>();
+
+            while(resultSet.next())
+            {
+                final Employee employee;
+                final String   id        = resultSet.getString("ID");
+                final String   firstName = resultSet.getString("firstName");
+                final String   lastName  = resultSet.getString("lastName");
+                final String   dobString = resultSet.getString("dob");
+
+                if(dobString != null)
+                {
+                    final LocalDate dob = LocalDate.parse(resultSet.getString("dob"));
+                    employee = new Employee(id,
+                                            firstName,
+                                            lastName,
+                                            dob);
+                }
+                else
+                {
+                    employee = new Employee(id,
+                                            firstName,
+                                            lastName);
+                }
+
+                employees.add(employee);
+            }
+
+            return employees;
+        }
+
+        @Override
+        public void insert ( final Employee employee) throws SQLException
+        {
+
+        }
+
+        @Override
+        public void update ( final Employee employee) throws SQLException
+        {
+
+        }
+
+        @Override
+        public void delete ( final int id) throws SQLException
+        {
+
+        }
+
+        @Override
+        public void createTable () throws SQLException
+        {
+
+        }
 
     }
-
-    @Override
-    public void update(final Employee employee) throws SQLException
-    {
-
-    }
-
-    @Override
-    public void delete(final int id) throws SQLException
-    {
-
-    }
-
-    @Override
-    public void createTable() throws SQLException
-    {
-
-    }
-
-}

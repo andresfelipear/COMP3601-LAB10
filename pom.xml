@@ -26,9 +26,14 @@
       <version>2.1</version>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>com.microsoft.sqlserver</groupId>
+      <artifactId>mssql-jdbc</artifactId>
+      <version>12.8.0.jre8</version> <!-- Use the appropriate version for your JRE -->
+    </dependency>
   </dependencies>
   <build>
-    <finalName>A01394332_Lab10</finalName>
+    <finalName>A01394332_lab10</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

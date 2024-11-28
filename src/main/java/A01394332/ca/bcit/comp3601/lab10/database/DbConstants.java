@@ -11,5 +11,6 @@ public interface DbConstants
     String DB_PROPERTIES_FILENAME = "db.properties";
     String DB_DRIVER_KEY = "db.driver";
     String TABLE_ROOT = "A00123456_";
+    String CUSTOMER_TABLE_NAME = TABLE_ROOT + "Customer";
     String EMPLOYEE_TABLE_NAME = TABLE_ROOT + "Employee";
 }

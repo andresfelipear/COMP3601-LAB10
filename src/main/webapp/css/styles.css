@@ -1,0 +1,33 @@
+body
+{
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    padding: 40px 80px;
+}
+
+table
+{
+    border-collapse: collapse;
+}
+
+th,td
+{
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+}
+
+h1
+{
+    color: #333;
+    margin-bottom: 40px;
+}
+
+input[type=submit]
+{
+    background: red;
+    color: white;
+    border-radius: 10%;
+    border: none;
+    padding: 3px 6px;
+}

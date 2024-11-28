@@ -13,5 +13,5 @@ import java.util.List;
  */
 public interface EmployeeManager
 {
-    public List<Employee> getEmployees() throws SQLException;
+    List<Employee> getEmployees() throws SQLException;
 }

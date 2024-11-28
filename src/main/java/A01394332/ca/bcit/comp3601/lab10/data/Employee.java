@@ -61,4 +61,24 @@ public class Employee
             throw new IllegalArgumentException("Invalid Employee ID");
         }
     }
+
+    public String getId()
+    {
+        return id;
+    }
+
+    public String getFirstName()
+    {
+        return firstName;
+    }
+
+    public String getLastName()
+    {
+        return lastName;
+    }
+
+    public LocalDate getDateOfBirth()
+    {
+        return dateOfBirth;
+    }
 }

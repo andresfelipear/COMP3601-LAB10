@@ -33,7 +33,7 @@ public class Database
 
     public Connection getConnection() throws SQLException
     {
-        if(connection != null)
+        if(connection != null && !connection.isClosed())
         {
             return connection;
         }
@@ -54,7 +54,9 @@ public class Database
         Class.forName(properties.getProperty(DbConstants.DB_DRIVER_KEY));
         System.out.println("Driver Loaded");
 
-        connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+        String modifiedUrl = dbUrl + ";encrypt=true;trustServerCertificate=true";
+
+        connection = DriverManager.getConnection(modifiedUrl, dbUser, dbPassword);
         System.out.println("Database Connection Established");
     }
 
