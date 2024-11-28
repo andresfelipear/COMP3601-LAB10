@@ -1,8 +1,7 @@
 package A01394332.ca.bcit.comp3601.lab10.database.dao;
 
-import A01394332.ca.bcit.comp3601.lab10.database.Database;
-
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * Dao
@@ -10,21 +9,17 @@ import java.sql.SQLException;
  * @author user
  * @version 1.0
  */
-public abstract class Dao
+public interface Dao<T>
 {
-    protected final Database db;
-    protected final String   tableName;
+    T get(int id) throws SQLException;
 
-    protected Dao(final Database db,
-               final String tableName)
-    {
-        this.db = db;
-        this.tableName = tableName;
-    }
+    List<T> getAll() throws SQLException;
 
-    public abstract void create() throws SQLException;
+    void insert(T t) throws SQLException;
 
+    void update(T t) throws SQLException;
 
+    void delete(int id) throws SQLException;
 
-
+    void createTable() throws SQLException;
 }
