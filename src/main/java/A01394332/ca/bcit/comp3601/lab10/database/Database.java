@@ -1,8 +1,6 @@
 package A01394332.ca.bcit.comp3601.lab10.database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Properties;
 
 /**
@@ -17,8 +15,8 @@ public class Database
     public final String dbUser;
     public final String dbPassword;
 
-    private static Connection   connection;
-    private final Properties    properties;
+    private static Connection connection;
+    private final Properties properties;
 
     public Database(final Properties properties,
                     final String url,
@@ -56,7 +54,9 @@ public class Database
 
         String modifiedUrl = dbUrl + ";encrypt=true;trustServerCertificate=true";
 
-        connection = DriverManager.getConnection(modifiedUrl, dbUser, dbPassword);
+        connection = DriverManager.getConnection(modifiedUrl,
+                                                 dbUser,
+                                                 dbPassword);
         System.out.println("Database Connection Established");
     }
 
@@ -73,5 +73,43 @@ public class Database
                 System.out.println(e.getMessage());
             }
         }
+    }
+
+    /**
+     * Checks if a given table exists in the database.
+     *
+     * @param tableName The name of the table to check.
+     * @return true if the table exists in the database; false otherwise.
+     * @throws SQLException if a database access error occurs.
+     */
+    public static boolean tableExists(String tableName) throws SQLException
+    {
+        DatabaseMetaData databaseMetaData = connection.getMetaData();
+        ResultSet        resultSet        = null;
+        String           rsTableName      = null;
+
+        try
+        {
+            resultSet = databaseMetaData.getTables(connection.getCatalog(),
+                                                   "%",
+                                                   "%",
+                                                   null);
+            while(resultSet.next())
+            {
+                rsTableName = resultSet.getString("TABLE_NAME");
+                if(rsTableName.equalsIgnoreCase(tableName))
+                {
+                    return true;
+                }
+            }
+        }
+        finally
+        {
+            if(resultSet != null)
+            {
+                resultSet.close();
+            }
+        }
+        return false;
     }
 }

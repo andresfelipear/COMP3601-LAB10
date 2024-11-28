@@ -21,5 +21,7 @@ public interface Dao<T>
 
     void delete(int id) throws SQLException;
 
+    void dropTable() throws SQLException;
+
     void createTable() throws SQLException;
 }

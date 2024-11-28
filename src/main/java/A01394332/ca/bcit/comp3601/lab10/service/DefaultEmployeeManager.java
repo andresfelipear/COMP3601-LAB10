@@ -5,8 +5,6 @@ import A01394332.ca.bcit.comp3601.lab10.database.Database;
 import A01394332.ca.bcit.comp3601.lab10.database.DbConstants;
 import A01394332.ca.bcit.comp3601.lab10.database.dao.EmployeeDao;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
@@ -28,14 +26,21 @@ public class DefaultEmployeeManager implements EmployeeManager
 
     public DefaultEmployeeManager(final String dbUrl,
                                   final String dbUser,
-                                  final String dbPassword) throws IOException
+                                  final String dbPassword) throws IOException, SQLException
     {
         readAndLoadPropertiesFile();
         db = new Database(dbProps,
                           dbUrl,
                           dbUser,
                           dbPassword);
+        db.getConnection();
         employeeDao = new EmployeeDao(db);
+
+        if(!Database.tableExists(DbConstants.EMPLOYEE_TABLE_NAME))
+        {
+            employeeDao.createTable();
+            employeeDao.insertAll();
+        }
     }
 
     private void readAndLoadPropertiesFile() throws IOException
@@ -60,6 +65,6 @@ public class DefaultEmployeeManager implements EmployeeManager
 
     public void listTables() throws SQLException
     {
-        employeeDao.listTables();
+        employeeDao.listAllTablesNames();
     }
 }

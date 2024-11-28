@@ -55,10 +55,17 @@ public class EmployeeServlet extends HttpServlet
     {
         try
         {
-            List<Employee> employees = employeeManager.getEmployees();
-            req.setAttribute("employees", employees);
+            if(employeeManager != null)
+            {
+                List<Employee> employees = employeeManager.getEmployees();
+                req.setAttribute("employees", employees);
+            }
+            else
+            {
+                throw new ServletException("Employee Manager is null!");
+            }
         }
-        catch(SQLException e)
+        catch(Exception e)
         {
             System.out.println(e.getMessage());
             req.setAttribute("error", e.getMessage());
@@ -75,7 +82,7 @@ public class EmployeeServlet extends HttpServlet
         {
             employeeManager =  new DefaultEmployeeManager(url, username, password);
         }
-        catch(IOException e)
+        catch(IOException | SQLException e)
         {
             System.out.println(e.getMessage());
         }
