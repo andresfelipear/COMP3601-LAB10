@@ -85,15 +85,13 @@ public class Database
     public static boolean tableExists(String tableName) throws SQLException
     {
         DatabaseMetaData databaseMetaData = connection.getMetaData();
-        ResultSet        resultSet        = null;
-        String           rsTableName      = null;
 
-        try
+        String           rsTableName;
+        try(ResultSet resultSet = databaseMetaData.getTables(connection.getCatalog(),
+                                                             "%",
+                                                             "%",
+                                                             null))
         {
-            resultSet = databaseMetaData.getTables(connection.getCatalog(),
-                                                   "%",
-                                                   "%",
-                                                   null);
             while(resultSet.next())
             {
                 rsTableName = resultSet.getString("TABLE_NAME");
@@ -101,13 +99,6 @@ public class Database
                 {
                     return true;
                 }
-            }
-        }
-        finally
-        {
-            if(resultSet != null)
-            {
-                resultSet.close();
             }
         }
         return false;

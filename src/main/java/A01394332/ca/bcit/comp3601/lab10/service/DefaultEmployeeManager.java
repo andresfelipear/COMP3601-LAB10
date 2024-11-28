@@ -21,7 +21,6 @@ public class DefaultEmployeeManager implements EmployeeManager
 {
     private Properties dbProps;
 
-    private Database db;
     private final EmployeeDao employeeDao;
 
     public DefaultEmployeeManager(final String dbUrl,
@@ -29,10 +28,8 @@ public class DefaultEmployeeManager implements EmployeeManager
                                   final String dbPassword) throws IOException, SQLException
     {
         readAndLoadPropertiesFile();
-        db = new Database(dbProps,
-                          dbUrl,
-                          dbUser,
-                          dbPassword);
+        Database db = new Database(dbProps, dbUrl, dbUser, dbPassword);
+
         db.getConnection();
         employeeDao = new EmployeeDao(db);
 
@@ -61,10 +58,5 @@ public class DefaultEmployeeManager implements EmployeeManager
     public List<Employee> getEmployees() throws SQLException
     {
         return employeeDao.getAll();
-    }
-
-    public void listTables() throws SQLException
-    {
-        employeeDao.listAllTablesNames();
     }
 }

@@ -68,7 +68,7 @@ public class EmployeeServlet extends HttpServlet
         catch(Exception e)
         {
             System.out.println(e.getMessage());
-            req.setAttribute("error", e.getMessage());
+            req.setAttribute("error", "Error getting the list of employees");
         }
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");

@@ -1,7 +1,6 @@
 package A01394332.ca.bcit.comp3601.lab10.data;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 /**
  * Employee

@@ -5,10 +5,6 @@ import A01394332.ca.bcit.comp3601.lab10.data.util.Util;
 import A01394332.ca.bcit.comp3601.lab10.database.Database;
 import A01394332.ca.bcit.comp3601.lab10.database.DbConstants;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -157,7 +153,7 @@ public class EmployeeDao implements Dao<Employee>
     {
         System.out.println("creating table");
         String ucIdentifier = "uc_" + DbConstants.TABLE_ROOT + "EmployeeID";
-        String creatTableSQLQuery = readSQLFile(DbConstants.EMPLOYEE_CREATE_TABLE_SCRIPT_NAME);
+        String creatTableSQLQuery = Util.readSQLFile(DbConstants.EMPLOYEE_CREATE_TABLE_SCRIPT_NAME);
         creatTableSQLQuery = creatTableSQLQuery.replace("Employees",
                                                         TABLE_NAME);
         creatTableSQLQuery = creatTableSQLQuery.replace("uc_EmployeeID", ucIdentifier);
@@ -167,7 +163,7 @@ public class EmployeeDao implements Dao<Employee>
     public void insertAll() throws SQLException
     {
         System.out.println("inserting employees");
-        String insertAllSQLQuery = readSQLFile(DbConstants.EMPLOYEE_INSERT_ALL_SCRIPT_NAME);
+        String insertAllSQLQuery = Util.readSQLFile(DbConstants.EMPLOYEE_INSERT_ALL_SCRIPT_NAME);
         insertAllSQLQuery = insertAllSQLQuery.replaceAll("Employees", TABLE_NAME);
         executeSQLScript(insertAllSQLQuery);
     }
@@ -193,31 +189,5 @@ public class EmployeeDao implements Dao<Employee>
             System.out.println("error performing sql operation in the employees table: " + e.getMessage());
             throw new SQLException(e);
         }
-    }
-
-    private String readSQLFile(final String fileName)
-    {
-        StringBuilder sb = new StringBuilder();
-        try(InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName))
-        {
-            if(inputStream == null)
-            {
-                throw new FileNotFoundException(fileName);
-            }
-            try(BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream)))
-            {
-                String line;
-                while((line = reader.readLine()) != null)
-                {
-                    sb.append(line).append("\n");
-                }
-            }
-        }
-        catch(Exception e)
-        {
-            System.out.println(e.getMessage());
-            throw new RuntimeException("Error reading SQL file");
-        }
-        return sb.toString();
     }
 }
