@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * EmployeeDao
  *
- * @author user
+ * @author Andres Arevalo
  * @version 1.0
  */
 public class EmployeeDao implements Dao<Employee>
@@ -30,17 +30,34 @@ public class EmployeeDao implements Dao<Employee>
         TABLE_NAME = DbConstants.EMPLOYEE_TABLE_NAME;
     }
 
+    /**
+     * Constructs an {@code EmployeeDao} with the specified {@link Database} connection.
+     *
+     * @param db the {@link Database} instance used to interact with the employee database table.
+     */
     public EmployeeDao(final Database db)
     {
         this.db = db;
     }
 
+    /**
+     * Retrieves an {@link Employee} by its unique ID.
+     *
+     * @param id the unique identifier of the employee to retrieve.
+     * @return the {@link Employee} object if found; {@code null} otherwise.
+     */
     @Override
     public Employee get(final int id)
     {
         return null;
     }
 
+    /**
+     * Retrieves all {@link Employee} records from the database.
+     *
+     * @return a {@link List} of all {@link Employee} objects in the database.
+     * @throws SQLException if a database access error occurs.
+     */
     @Override
     public List<Employee> getAll() throws SQLException
     {
@@ -64,6 +81,15 @@ public class EmployeeDao implements Dao<Employee>
         return employees;
     }
 
+    /**
+     * Lists the names of all tables in the current database.
+     *
+     * <p>
+     * This method queries the database's information schema to retrieve all table names.
+     * </p>
+     *
+     * @throws SQLException if a database access error occurs.
+     */
     public void listAllTablesNames() throws SQLException
     {
         ResultSet resultSet;
@@ -85,6 +111,13 @@ public class EmployeeDao implements Dao<Employee>
         }
     }
 
+    /**
+     * Parses a {@link ResultSet} to create a list of {@link Employee} objects.
+     *
+     * @param resultSet the {@link ResultSet} containing employee data.
+     * @return an {@link ArrayList} of {@link Employee} objects.
+     * @throws SQLException if a database access error occurs while reading the {@link ResultSet}.
+     */
     private ArrayList<Employee> getEmployeesFromResultSet(final ResultSet resultSet) throws SQLException
     {
         final ArrayList<Employee> employees = new ArrayList<>();
@@ -112,17 +145,36 @@ public class EmployeeDao implements Dao<Employee>
         return employees;
     }
 
+    /**
+     * Inserts a new {@link Employee} into the database.
+     *
+     * @param employee the {@link Employee} object to insert.
+     * @throws SQLException if a database access error occurs or the insertion fails.
+     */
     @Override
     public void insert(final Employee employee) throws SQLException
     {
 
     }
 
+    /**
+     * Updates an existing {@link Employee} record in the database.
+     *
+     * @param employee the {@link Employee} object with updated values.
+     * @throws SQLException if a database access error occurs or the update fails.
+     */
     @Override
     public void update(final Employee employee) throws SQLException
     {
 
     }
+
+    /**
+     * Deletes an {@link Employee} record from the database by its ID.
+     *
+     * @param id the unique identifier of the employee to delete.
+     * @throws SQLException if a database access error occurs or the deletion fails.
+     */
 
     @Override
     public void delete(final int id) throws SQLException
@@ -130,6 +182,11 @@ public class EmployeeDao implements Dao<Employee>
 
     }
 
+    /**
+     * Drops the employee table from the database.
+     *
+     * @throws SQLException if a database access error occurs or the operation fails.
+     */
     @Override
     public void dropTable() throws SQLException
     {
@@ -148,6 +205,12 @@ public class EmployeeDao implements Dao<Employee>
         System.out.println("Table " + TABLE_NAME + "dropped correctly");
     }
 
+    /**
+     * Creates the employee table in the database using a pre-defined SQL script.
+     * The SQL script is read from the file specified by {@link DbConstants#EMPLOYEE_CREATE_TABLE_SCRIPT_NAME}.
+     *
+     * @throws SQLException if a database access error occurs or the operation fails.
+     */
     @Override
     public void createTable() throws SQLException
     {
@@ -160,6 +223,12 @@ public class EmployeeDao implements Dao<Employee>
         executeSQLScript(creatTableSQLQuery);
     }
 
+    /**
+     * Inserts all employee records into the database using a pre-defined SQL script.
+     * The SQL script is read from the file specified by {@link DbConstants#EMPLOYEE_INSERT_ALL_SCRIPT_NAME}.
+     *
+     * @throws SQLException if a database access error occurs or the operation fails.
+     */
     public void insertAll() throws SQLException
     {
         System.out.println("inserting employees");
@@ -168,6 +237,12 @@ public class EmployeeDao implements Dao<Employee>
         executeSQLScript(insertAllSQLQuery);
     }
 
+    /**
+     * Executes an SQL script containing multiple statements, separated by "GO".
+     *
+     * @param script the SQL script to execute.
+     * @throws SQLException if a database access error occurs or the script execution fails.
+     */
     private void executeSQLScript(final String script) throws SQLException
     {
         String[] sqlBatches = script.split("GO");

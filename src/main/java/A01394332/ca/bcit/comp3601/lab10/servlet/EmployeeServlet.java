@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * EmployeeServlet
  *
- * @author user
+ * @author Andres Arevalo
  * @version 1.0
  */
 @WebServlet(
@@ -37,6 +37,15 @@ public class EmployeeServlet extends HttpServlet
     private String password;
     private DefaultEmployeeManager employeeManager;
 
+    /**
+     * Initializes the servlet and sets up the database connection parameters.
+     * This method reads the database connection parameters (URL, username,
+     * and password) from the servlet's initialization parameters and
+     * establishes a connection by creating an instance of {@link DefaultEmployeeManager}.
+     *
+     * @param config The servlet configuration object containing initialization parameters.
+     * @throws ServletException if an error occurs during initialization.
+     */
     @Override
     public void init(final ServletConfig config) throws ServletException
     {
@@ -49,6 +58,20 @@ public class EmployeeServlet extends HttpServlet
     }
 
 
+    /**
+     * Handles HTTP GET requests to retrieve employee data.
+     * This method fetches a list of employees using the `DefaultEmployeeManager`
+     * and sets it as a request attribute. The request is then forwarded to
+     * the `index.jsp` view for rendering. If an error occurs during data
+     * retrieval, an error message is set as a request attribute.
+     *
+     * @param req  the `HttpServletRequest` object that contains the request
+     *             the client made to the servlet.
+     * @param resp the `HttpServletResponse` object that contains the response
+     *             the servlet sends to the client.
+     * @throws ServletException if a servlet-specific error occurs.
+     * @throws IOException      if an I/O error occurs while handling the request.
+     */
     @Override
     protected void doGet(final HttpServletRequest req,
                          final HttpServletResponse resp) throws ServletException, IOException
@@ -75,6 +98,13 @@ public class EmployeeServlet extends HttpServlet
         dispatcher.forward(req, resp);
     }
 
+    /**
+     * Establishes a connection to the database using the `DefaultEmployeeManager`.
+     * This method creates a new instance of the `DefaultEmployeeManager` with the
+     * database connection parameters provided during servlet initialization.
+     * If an error occurs while establishing the connection, the exception
+     * message is printed to the console.
+     */
     private void createConnection()
     {
         System.out.println("Connecting to the database...");

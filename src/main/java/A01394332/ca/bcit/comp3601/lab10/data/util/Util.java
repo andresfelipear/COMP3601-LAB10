@@ -13,6 +13,14 @@ import java.io.InputStreamReader;
  */
 public class Util
 {
+    /**
+     * Reads the content of a SQL file from the classpath.
+     * This method reads a SQL file line by line and returns its content as a single String.
+     * The file must be located in the classpath.
+     * @param fileName the name of the SQL file to be read.
+     * @return the content of the SQL file as a String.
+     * @throws RuntimeException if the file is not found or an error occurs during reading.
+     */
     public static String readSQLFile(final String fileName)
     {
         StringBuilder sb = new StringBuilder();
