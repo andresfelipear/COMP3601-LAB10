@@ -10,6 +10,6 @@
   <display-name>Archetype Created Web Application</display-name>
 
   <welcome-file-list>
-    <welcome-file>A01394332.ca.bcit.comp3601.lab10.servlet.EmployeeServlet</welcome-file>
+    <welcome-file>employee</welcome-file>
   </welcome-file-list>
 </web-app>

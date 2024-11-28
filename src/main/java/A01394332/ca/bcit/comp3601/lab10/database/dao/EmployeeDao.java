@@ -5,10 +5,7 @@ import A01394332.ca.bcit.comp3601.lab10.data.util.Util;
 import A01394332.ca.bcit.comp3601.lab10.database.Database;
 import A01394332.ca.bcit.comp3601.lab10.database.DbConstants;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,9 +44,27 @@ public class EmployeeDao implements Dao<Employee>
      * @return the {@link Employee} object if found; {@code null} otherwise.
      */
     @Override
-    public Employee get(final int id)
+    public Employee get(final String id) throws SQLException
     {
-        return null;
+        ResultSet rs = null;
+        try(Connection connection = db.getConnection();
+        Statement statement = connection.createStatement())
+        {
+            String query = String.format("SELECT * FROM %s WHERE ID='%s'", TABLE_NAME, id);
+            rs = statement.executeQuery(query);
+        }
+        catch(SQLException e)
+        {
+            System.out.println("There was an error retrieving the employee with id: " + id);
+            throw e;
+        }
+
+        ArrayList<Employee> employees = getEmployeesFromResultSet(rs);
+        if(employees.isEmpty())
+        {
+            return null;
+        }
+        return employees.get(0);
     }
 
     /**
@@ -154,7 +169,16 @@ public class EmployeeDao implements Dao<Employee>
     @Override
     public void insert(final Employee employee) throws SQLException
     {
-
+        try(Connection connection = db.getConnection();
+        Statement statement = connection.createStatement())
+        {
+            String sql = String.format("INSERT INTO %s VALUES('%s', '%s', '%s', '%s)",
+                                       TABLE_NAME,
+                                       employee.getId(),
+                                       employee.getFirstName(),
+                                       employee.getLastName(),
+                                       employee.getDateOfBirth());
+        }
     }
 
     /**
@@ -175,11 +199,21 @@ public class EmployeeDao implements Dao<Employee>
      * @param id the unique identifier of the employee to delete.
      * @throws SQLException if a database access error occurs or the deletion fails.
      */
-
     @Override
     public void delete(final int id) throws SQLException
     {
-
+        try(Connection connection = db.getConnection();
+        Statement statement = connection.createStatement())
+        {
+            String query = String.format("DELETE FROM %s WHERE id = '%s'", TABLE_NAME, id);
+            statement.execute(query);
+        }
+        catch(SQLException e)
+        {
+            System.out.println("error deleting employee with id: " + id);
+            throw e;
+        }
+        System.out.println("employee deleted.");
     }
 
     /**

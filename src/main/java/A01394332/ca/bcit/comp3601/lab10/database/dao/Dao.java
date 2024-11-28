@@ -18,7 +18,7 @@ public interface Dao<T>
      * @return the object corresponding to the given ID, or {@code null} if no such object exists.
      * @throws SQLException if a database access error occurs.
      */
-    T get(int id) throws SQLException;
+    T get(String id) throws SQLException;
 
     /**
      * Retrieves all objects of type {@code T} from the database.

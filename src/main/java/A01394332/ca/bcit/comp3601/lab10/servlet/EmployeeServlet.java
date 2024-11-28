@@ -22,7 +22,7 @@ import java.util.List;
  * @version 1.0
  */
 @WebServlet(
-        urlPatterns = "",
+        urlPatterns = "/employee",
         initParams = {
                 @WebInitParam(name = "url", value = "jdbc:sqlserver://java-sql.ad.bcit.ca:1433;databaseName=jspweb"),
                 @WebInitParam(name = "username", value = "javastudent"),
