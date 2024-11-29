@@ -1,4 +1,4 @@
-package A01394332.ca.bcit.comp3601.lab10.data.util;
+package A01394332.ca.bcit.comp3601.assign2.data.util;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

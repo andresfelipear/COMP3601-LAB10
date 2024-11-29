@@ -1,4 +1,4 @@
-package A01394332.ca.bcit.comp3601.lab10.database.dao;
+package A01394332.ca.bcit.comp3601.assign2.database.dao;
 
 import java.sql.SQLException;
 import java.util.List;

@@ -1,7 +1,7 @@
-package A01394332.ca.bcit.comp3601.lab10.servlet;
+package A01394332.ca.bcit.comp3601.assign2.servlet;
 
-import A01394332.ca.bcit.comp3601.lab10.data.Employee;
-import A01394332.ca.bcit.comp3601.lab10.service.DefaultEmployeeManager;
+import A01394332.ca.bcit.comp3601.assign2.data.Employee;
+import A01394332.ca.bcit.comp3601.assign2.service.DefaultEmployeeManager;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;

@@ -1,4 +1,4 @@
-package A01394332.ca.bcit.comp3601.lab10.data;
+package A01394332.ca.bcit.comp3601.assign2.data;
 
 import java.time.LocalDate;
 

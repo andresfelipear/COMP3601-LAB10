@@ -4,20 +4,61 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83d9e92b-7d19-4bb6-a23f-68e33b38f890" name="Changes" comment="" />
+    <list default="true" id="83d9e92b-7d19-4bb6-a23f-68e33b38f890" name="Changes" comment="assignment02. Created method for CRUD operations: insert and get employees">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Employees.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/addEmployees.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/deleteEmployees.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/findEmployees.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/lab10/data/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/assign2/data/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/lab10/data/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/assign2/data/util/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/lab10/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/assign2/database/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/lab10/database/DbConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/assign2/database/DbConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/lab10/database/dao/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/assign2/database/dao/Dao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/lab10/database/dao/EmployeeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/assign2/database/dao/EmployeeDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/lab10/service/DefaultEmployeeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/assign2/service/DefaultEmployeeManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/lab10/service/EmployeeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/assign2/service/EmployeeManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/lab10/servlet/EmployeeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/assign2/servlet/EmployeeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Abstract" />
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="Jsp File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 7
 }]]></component>
   <component name="ProjectId" id="2pSp32WjjiWcAMdZ9fDrhkerGeB" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -25,13 +66,34 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "Maven.lab10 [clean].executor": "Run",
+    "Maven.lab10 [install].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "aarevalo-assignment02",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Documents/BCIT/Term4/COMP3601/lesson10/day10/examples",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "build.tools",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Documents\BCIT\Term4\COMP3601\lesson10\lab10\src\main\resources" />
+      <recent name="D:\Documents\BCIT\Term4\COMP3601\lesson10\lab10\src\main\webapp" />
+      <recent name="D:\Documents\BCIT\Term4\COMP3601\lesson10\lab10" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Documents\BCIT\Term4\COMP3601\lesson10\lab10\src\main\webapp" />
+      <recent name="D:\Documents\BCIT\Term4\COMP3601\lesson10\lab10\src\main\resources" />
+      <recent name="D:\Documents\BCIT\Term4\COMP3601\lesson10\lab10" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -48,11 +110,97 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1732769127477</updated>
-      <workItem from="1732769128650" duration="3000" />
+      <workItem from="1732769128650" duration="36638000" />
     </task>
+    <task id="LOCAL-00001" summary="created basic project structure using mvc patter. Created Database config">
+      <option name="closed" value="true" />
+      <created>1732772644640</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1732772644640</updated>
+    </task>
+    <task id="LOCAL-00002" summary="created employee class, defined dao and employee dao to handle comm with the database.">
+      <option name="closed" value="true" />
+      <created>1732777824827</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1732777824827</updated>
+    </task>
+    <task id="LOCAL-00003" summary="connection to the database success!!. Working on getting the right data">
+      <option name="closed" value="true" />
+      <created>1732789897480</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1732789897480</updated>
+    </task>
+    <task id="LOCAL-00004" summary="lab 10 done!.">
+      <option name="closed" value="true" />
+      <created>1732796551586</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732796551586</updated>
+    </task>
+    <task id="LOCAL-00005" summary="lab 10 done!. removed warnings and fixed error statements">
+      <option name="closed" value="true" />
+      <created>1732796975336</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1732796975336</updated>
+    </task>
+    <task id="LOCAL-00006" summary="lab 10 done!. added docstrings">
+      <option name="closed" value="true" />
+      <created>1732828238977</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1732828238977</updated>
+    </task>
+    <task id="LOCAL-00007" summary="lab 10 done!. added docstrings">
+      <option name="closed" value="true" />
+      <created>1732828368294</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1732828368294</updated>
+    </task>
+    <task id="LOCAL-00008" summary="assignment02. Created method for CRUD operations: insert and get employees">
+      <option name="closed" value="true" />
+      <created>1732831560200</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1732831560200</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="created basic project structure using mvc patter. Created Database config" />
+    <MESSAGE value="created employee class, defined dao and employee dao to handle comm with the database." />
+    <MESSAGE value="connection to the database success!!. Working on getting the right data" />
+    <MESSAGE value="lab 10 done!." />
+    <MESSAGE value="lab 10 done!. removed warnings and fixed error statements" />
+    <MESSAGE value="lab 10 done!. added docstrings" />
+    <MESSAGE value="assignment02. Created method for CRUD operations: insert and get employees" />
+    <option name="LAST_COMMIT_MESSAGE" value="assignment02. Created method for CRUD operations: insert and get employees" />
   </component>
 </project>

@@ -1,6 +1,6 @@
-package A01394332.ca.bcit.comp3601.lab10.service;
+package A01394332.ca.bcit.comp3601.assign2.service;
 
-import A01394332.ca.bcit.comp3601.lab10.data.Employee;
+import A01394332.ca.bcit.comp3601.assign2.data.Employee;
 
 import java.sql.SQLException;
 import java.util.List;

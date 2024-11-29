@@ -1,9 +1,9 @@
-package A01394332.ca.bcit.comp3601.lab10.service;
+package A01394332.ca.bcit.comp3601.assign2.service;
 
-import A01394332.ca.bcit.comp3601.lab10.data.Employee;
-import A01394332.ca.bcit.comp3601.lab10.database.Database;
-import A01394332.ca.bcit.comp3601.lab10.database.DbConstants;
-import A01394332.ca.bcit.comp3601.lab10.database.dao.EmployeeDao;
+import A01394332.ca.bcit.comp3601.assign2.data.Employee;
+import A01394332.ca.bcit.comp3601.assign2.database.Database;
+import A01394332.ca.bcit.comp3601.assign2.database.DbConstants;
+import A01394332.ca.bcit.comp3601.assign2.database.dao.EmployeeDao;
 
 import java.io.IOException;
 import java.io.InputStream;
