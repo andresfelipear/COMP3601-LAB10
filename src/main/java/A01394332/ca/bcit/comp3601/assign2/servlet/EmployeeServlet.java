@@ -128,6 +128,49 @@ public class EmployeeServlet extends HttpServlet
                 req.setAttribute("message", e.getMessage());
             }
         }
+        else if(idToFind != null)
+        {
+            try
+            {
+                Employee employee = employeeManager.getEmployee(idToFind);
+                req.setAttribute("employee", employee);
+
+                if(employee == null)
+                {
+                    req.setAttribute("foundStatus", "Result Code: 801 Description: Employee Not Found");
+                }
+                else
+                {
+                    req.setAttribute("foundStatus", "Result Code: 000 Description: Success");
+                }
+            }
+            catch(Exception e)
+            {
+                System.out.println(e.getMessage());
+                req.setAttribute("statusToFind", e.getMessage());
+            }
+        }
+        else if(idToDelete != null)
+        {
+            String regex = "^A0[0-9]{7}$";
+            if(!idToDelete.matches(regex))
+            {
+                req.setAttribute("deleteStatus", "Result Code: 902 Description: Delete Unsuccessfully");
+            }
+            else
+            {
+                try
+                {
+                    employeeManager.deleteEmployee(idToDelete);
+                    req.setAttribute("deleteStatus", "Result Code: 001 Description: Delete Successfully");
+                }
+                catch(Exception e)
+                {
+                    System.out.println(e.getMessage());
+                    req.setAttribute("deleteStatus", "Result Code: 902 Description: Delete Unsuccessfully");
+                }
+            }
+        }
         doGet(req, resp);
     }
 

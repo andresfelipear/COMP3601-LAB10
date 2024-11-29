@@ -8,4 +8,10 @@
         </div>
         <button type="submit">Search</button>
     </form>
+    <c:if test="${not empty employee}">
+        <p>Found <c:out value="${employee.firstName}"/> <c:out value="${employee.lastName}"/></p>
+    </c:if>
+    <c:if test="${not empty foundStatus}">
+        <p><c:out value="${foundStatus}"/></p>
+    </c:if>
 </div>

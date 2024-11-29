@@ -46,12 +46,14 @@ public class EmployeeDao implements Dao<Employee>
     @Override
     public Employee get(final String id) throws SQLException
     {
+        ArrayList<Employee> employees;
         ResultSet rs = null;
         try(Connection connection = db.getConnection();
         Statement statement = connection.createStatement())
         {
             String query = String.format("SELECT * FROM %s WHERE ID='%s'", TABLE_NAME, id);
             rs = statement.executeQuery(query);
+            employees = getEmployeesFromResultSet(rs);
         }
         catch(SQLException e)
         {
@@ -59,7 +61,6 @@ public class EmployeeDao implements Dao<Employee>
             throw e;
         }
 
-        ArrayList<Employee> employees = getEmployeesFromResultSet(rs);
         if(employees.isEmpty())
         {
             return null;

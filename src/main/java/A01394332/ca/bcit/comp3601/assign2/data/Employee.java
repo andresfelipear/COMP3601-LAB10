@@ -86,7 +86,8 @@ public class Employee
      */
     private static void validateId(final String id)
     {
-        if(id == null || id.isBlank() || id.length() != ID_VALID_LENGTH)
+        String regex = "^A0[0-9]{7}$";
+        if(id == null || !id.matches(regex))
         {
             throw new IllegalArgumentException("Result Code: 901 Description:invalid employee data!");
         }

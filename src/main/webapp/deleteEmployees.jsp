@@ -8,4 +8,7 @@
         </div>
         <button type="submit">Delete</button>
     </form>
+    <c:if test="${not empty deleteStatus}">
+        <p><c:out value="${deleteStatus}"/></p>
+    </c:if>
 </div>
