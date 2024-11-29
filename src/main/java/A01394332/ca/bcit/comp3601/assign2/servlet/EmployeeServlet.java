@@ -99,6 +99,29 @@ public class EmployeeServlet extends HttpServlet
         dispatcher.forward(req, resp);
     }
 
+
+    /**
+     * Handles HTTP POST requests for managing employees.
+     *
+     * <p>
+     * This method processes different actions based on the presence of request parameters:
+     * </p>
+     * <ul>
+     *   <li>If the "id" parameter is present, it attempts to add a new employee to the system.</li>
+     *   <li>If the "idToFind" parameter is present, it retrieves a specific employee by their ID.</li>
+     *   <li>If the "idToDelete" parameter is present, it deletes a specific employee by their ID.</li>
+     * </ul>
+     *
+     * <p>
+     * After processing the request, the method delegates to the {@code doGet} method to forward
+     * the response to the appropriate view.
+     * </p>
+     *
+     * @param req  the {@link HttpServletRequest} object containing client request data.
+     * @param resp the {@link HttpServletResponse} object for sending the response.
+     * @throws ServletException if an input or output error occurs while processing the request.
+     * @throws IOException      if a servlet-specific error occurs.
+     */
     @Override
     protected void doPost(final HttpServletRequest req,
                           final HttpServletResponse resp) throws ServletException, IOException

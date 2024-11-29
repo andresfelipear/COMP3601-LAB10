@@ -88,12 +88,34 @@ public class DefaultEmployeeManager implements EmployeeManager
         return employeeDao.getAll();
     }
 
+    /**
+     * Adds a new employee to the system.
+     *
+     * <p>
+     * This method delegates the insertion of the {@link Employee} object to the
+     * {@code employeeDao}, which handles the database interaction.
+     * </p>
+     *
+     * @param employee the {@link Employee} object to add.
+     * @throws SQLException if a database access error occurs during insertion.
+     */
     @Override
     public void addEmployee(final Employee employee) throws SQLException
     {
         employeeDao.insert(employee);
     }
 
+    /**
+     * Deletes an employee by their unique ID.
+     *
+     * <p>
+     * This method delegates the deletion operation to the {@code employeeDao},
+     * which removes the employee record associated with the given ID from the database.
+     * </p>
+     *
+     * @param employeeId the unique ID of the employee to delete.
+     * @throws SQLException if a database access error occurs during deletion.
+     */
     @Override
     public void deleteEmployee(final String employeeId) throws SQLException
     {
@@ -101,6 +123,19 @@ public class DefaultEmployeeManager implements EmployeeManager
 
     }
 
+    /**
+     * Retrieves a specific employee by their unique ID.
+     *
+     * <p>
+     * This method delegates the retrieval operation to the {@code employeeDao},
+     * which fetches the employee record associated with the given ID from the database.
+     * </p>
+     *
+     * @param employeeId the unique ID of the employee to retrieve.
+     * @return the {@link Employee} object representing the employee with the specified ID,
+     *         or {@code null} if no such employee exists.
+     * @throws SQLException if a database access error occurs during retrieval.
+     */
     @Override
     public Employee getEmployee(final String employeeId) throws SQLException
     {

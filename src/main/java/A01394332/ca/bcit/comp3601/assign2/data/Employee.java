@@ -133,6 +133,20 @@ public class Employee
         return dateOfBirth;
     }
 
+    /**
+     * Returns a string representation of the `Employee` object.
+     *
+     * <p>
+     * The string representation includes the employee's ID, first name,
+     * last name, and date of birth, formatted as:
+     * </p>
+     *
+     * <pre>
+     * Employee [id=ID_VALUE, firstName=FIRST_NAME, lastName=LAST_NAME, dateOfBirth=DATE_OF_BIRTH]
+     * </pre>
+     *
+     * @return a string describing the employee's attributes.
+     */
     @Override
     public String toString()
     {

@@ -47,13 +47,14 @@ public class EmployeeDao implements Dao<Employee>
     public Employee get(final String id) throws SQLException
     {
         ArrayList<Employee> employees;
-        ResultSet rs = null;
+        ResultSet           rs;
+
         try(Connection connection = db.getConnection();
-        Statement statement = connection.createStatement())
+            Statement statement   = connection.createStatement())
         {
             String query = String.format("SELECT * FROM %s WHERE ID='%s'", TABLE_NAME, id);
-            rs = statement.executeQuery(query);
-            employees = getEmployeesFromResultSet(rs);
+            rs           = statement.executeQuery(query);
+            employees    = getEmployeesFromResultSet(rs);
         }
         catch(SQLException e)
         {
