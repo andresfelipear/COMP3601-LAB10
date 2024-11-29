@@ -50,7 +50,7 @@ public interface Dao<T>
      * @param id the unique identifier of the object to delete.
      * @throws SQLException if a database access error occurs or the deletion fails.
      */
-    void delete(int id) throws SQLException;
+    void delete(String id) throws SQLException;
 
     /**
      * Drops the table associated with objects of type {@code T} from the database.

@@ -74,7 +74,7 @@ public class Employee
     {
         if(str == null || str.isBlank())
         {
-            throw new IllegalArgumentException("String is null or empty");
+            throw new IllegalArgumentException("Result Code: 901 Description:invalid employee data!");
         }
     }
 
@@ -88,7 +88,7 @@ public class Employee
     {
         if(id == null || id.isBlank() || id.length() != ID_VALID_LENGTH)
         {
-            throw new IllegalArgumentException("Invalid Employee ID");
+            throw new IllegalArgumentException("Result Code: 901 Description:invalid employee data!");
         }
     }
 
@@ -130,5 +130,14 @@ public class Employee
     public LocalDate getDateOfBirth()
     {
         return dateOfBirth;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Employee [id=" + id +
+                ", firstName=" + firstName +
+                ", lastName=" + lastName +
+                ", dateOfBirth=" + dateOfBirth + "]";
     }
 }

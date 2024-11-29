@@ -169,16 +169,37 @@ public class EmployeeDao implements Dao<Employee>
     @Override
     public void insert(final Employee employee) throws SQLException
     {
+        String sql;
         try(Connection connection = db.getConnection();
         Statement statement = connection.createStatement())
         {
-            String sql = String.format("INSERT INTO %s VALUES('%s', '%s', '%s', '%s)",
-                                       TABLE_NAME,
-                                       employee.getId(),
-                                       employee.getFirstName(),
-                                       employee.getLastName(),
-                                       employee.getDateOfBirth());
+            if(employee.getDateOfBirth() == null)
+            {
+                sql = String.format("INSERT INTO %s([ID],[firstName],[lastName])" +
+                                            " VALUES('%s', '%s', '%s')",
+                                    TABLE_NAME,
+                                    employee.getId(),
+                                    employee.getFirstName(),
+                                    employee.getLastName());
+            }
+            else
+            {
+                sql = String.format("INSERT INTO %s([ID],[firstName],[lastName],[dob])" +
+                                            " VALUES('%s', '%s', '%s', '%s')",
+                                    TABLE_NAME,
+                                    employee.getId(),
+                                    employee.getFirstName(),
+                                    employee.getLastName(),
+                                    employee.getDateOfBirth());
+            }
+            statement.executeUpdate(sql);
         }
+        catch(SQLException e)
+        {
+            System.out.println("There was an error inserting the employee =" + employee);
+            throw new SQLException("Result Code: 502 Description: ID already exists for another employee");
+        }
+        System.out.println("employee added successfully!");
     }
 
     /**
@@ -200,7 +221,7 @@ public class EmployeeDao implements Dao<Employee>
      * @throws SQLException if a database access error occurs or the deletion fails.
      */
     @Override
-    public void delete(final int id) throws SQLException
+    public void delete(final String id) throws SQLException
     {
         try(Connection connection = db.getConnection();
         Statement statement = connection.createStatement())

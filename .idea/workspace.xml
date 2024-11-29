@@ -4,27 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83d9e92b-7d19-4bb6-a23f-68e33b38f890" name="Changes" comment="assignment02. Created method for CRUD operations: insert and get employees">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Employees.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/addEmployees.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/deleteEmployees.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/findEmployees.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/lab10/data/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/assign2/data/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/lab10/data/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/assign2/data/util/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/lab10/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/assign2/database/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/lab10/database/DbConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/assign2/database/DbConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/lab10/database/dao/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/assign2/database/dao/Dao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/lab10/database/dao/EmployeeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/assign2/database/dao/EmployeeDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/lab10/service/DefaultEmployeeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/assign2/service/DefaultEmployeeManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/lab10/service/EmployeeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/assign2/service/EmployeeManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/lab10/servlet/EmployeeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/assign2/servlet/EmployeeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+    <list default="true" id="83d9e92b-7d19-4bb6-a23f-68e33b38f890" name="Changes" comment="assignment02. Created jsp with styles to handle add, find and delete employees">
+      <change beforePath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/assign2/servlet/EmployeeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/A01394332/ca/bcit/comp3601/assign2/servlet/EmployeeServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +91,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1732769127477</updated>
-      <workItem from="1732769128650" duration="36638000" />
+      <workItem from="1732769128650" duration="37149000" />
     </task>
     <task id="LOCAL-00001" summary="created basic project structure using mvc patter. Created Database config">
       <option name="closed" value="true" />
@@ -176,7 +157,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732831560200</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="assignment02. Created jsp with styles to handle add, find and delete employees">
+      <option name="closed" value="true" />
+      <created>1732839957020</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1732839957020</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,6 +190,7 @@
     <MESSAGE value="lab 10 done!. removed warnings and fixed error statements" />
     <MESSAGE value="lab 10 done!. added docstrings" />
     <MESSAGE value="assignment02. Created method for CRUD operations: insert and get employees" />
-    <option name="LAST_COMMIT_MESSAGE" value="assignment02. Created method for CRUD operations: insert and get employees" />
+    <MESSAGE value="assignment02. Created jsp with styles to handle add, find and delete employees" />
+    <option name="LAST_COMMIT_MESSAGE" value="assignment02. Created jsp with styles to handle add, find and delete employees" />
   </component>
 </project>

@@ -87,4 +87,23 @@ public class DefaultEmployeeManager implements EmployeeManager
     {
         return employeeDao.getAll();
     }
+
+    @Override
+    public void addEmployee(final Employee employee) throws SQLException
+    {
+        employeeDao.insert(employee);
+    }
+
+    @Override
+    public void deleteEmployee(final String employeeId) throws SQLException
+    {
+        employeeDao.delete(employeeId);
+
+    }
+
+    @Override
+    public Employee getEmployee(final String employeeId) throws SQLException
+    {
+        return employeeDao.get(employeeId);
+    }
 }

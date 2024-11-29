@@ -23,4 +23,10 @@ public interface EmployeeManager
      * @throws SQLException if a database access error occurs.
      */
     List<Employee> getEmployees() throws SQLException;
+
+    void addEmployee(Employee employee) throws SQLException;
+
+    void deleteEmployee(String employeeId) throws SQLException;
+
+    Employee getEmployee(String employeeId) throws SQLException;
 }

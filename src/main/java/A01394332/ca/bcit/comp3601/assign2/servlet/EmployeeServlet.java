@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -96,6 +97,38 @@ public class EmployeeServlet extends HttpServlet
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
         dispatcher.forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(final HttpServletRequest req,
+                          final HttpServletResponse resp) throws ServletException, IOException
+    {
+        String id         = req.getParameter("id");
+        String idToFind   = req.getParameter("idToFind");
+        String idToDelete = req.getParameter("idToDelete");
+
+        if(id != null)
+        {
+            String firstName      = req.getParameter("firstName");
+            String lastName       = req.getParameter("lastName");
+            String dob            = req.getParameter("dob");
+            LocalDate dateOfBirth = (dob == null || dob.isEmpty()) ? null: LocalDate.parse(dob);
+
+            try
+            {
+                Employee employee = new Employee(id, firstName, lastName,
+                                                 dateOfBirth);
+
+                employeeManager.addEmployee(employee);
+                req.setAttribute("message", "Result Code: 200 Description: Success");
+            }
+            catch(Exception e)
+            {
+                System.out.println(e.getMessage());
+                req.setAttribute("message", e.getMessage());
+            }
+        }
+        doGet(req, resp);
     }
 
     /**

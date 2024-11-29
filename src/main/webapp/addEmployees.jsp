@@ -20,4 +20,7 @@
         </div>
         <button type="submit">Add Employees</button>
     </form>
+    <c:if test="${not empty message}">
+        <p><c:out value="${message}"/></p>
+    </c:if>
 </div>
